@@ -1,0 +1,42 @@
+** start of styles.css **
+
+.avatar.proportioned {
+
+width: 300px;
+height: auto;
+
+}
+
+.avatar.distorted {
+
+width: 200px;
+
+height: 400px;
+}
+
+** end of styles.css **
+
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chaining Selectors</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Use the classes BELOW this line -->
+    <div>
+      <img class="avatar proportioned" src="https://cdn.freecodecamp.org/curriculum/odin-project/css-foundations/css-foundations-01.jpg" alt="Two cute kittens">
+      <img class="avatar distorted" src="https://cdn.freecodecamp.org/curriculum/odin-project/css-foundations/css-foundations-02.jpg" alt="Three cute kittens">
+    </div>
+    <!-- Use the classes ABOVE this line -->
+    <div>
+      <img class="original proportioned" src="https://cdn.freecodecamp.org/curriculum/odin-project/css-foundations/css-foundations-01.jpg" alt="Two cute kittens">
+      <img class="original distorted" src="https://cdn.freecodecamp.org/curriculum/odin-project/css-foundations/css-foundations-02.jpg" alt="Three cute kittens">
+    </div>
+  </body>
+</html>
+
+** end of index.html **
+

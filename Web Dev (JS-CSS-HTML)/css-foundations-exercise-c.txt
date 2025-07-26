@@ -1,0 +1,40 @@
+** start of index.html **
+
+<!-- file: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Grouping Selectors</title>
+    <link rel="stylesheet" href="styles.css">
+    
+  </head>
+  <body>
+   
+  
+    <button class="i">Click Me!</button>
+    
+    <button class="o">No, Click Me!</button>
+  
+   
+ </body>
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+/* file: styles.css */
+.i {
+ background: black;
+ color: white;
+   }
+.o {
+ background: yellow
+   }
+.i, .o {
+    font-size: 28px;
+    font-family: Helvetica, "Times New Roman", sans-serif;
+   }
+
+** end of styles.css **
+

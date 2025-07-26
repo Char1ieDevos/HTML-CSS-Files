@@ -1,0 +1,106 @@
+** start of script.js **
+
+// User Story 1: Create an array named questions.
+// User Story 2: The questions array should contain at least five objects.
+// User Story 3, 4, 5, 6: Each object should have category, question, choices (array of 3 strings), and answer (string, which must be one of the choices).
+const questions = [
+    {
+        category: "Science",
+        question: "What is the chemical symbol for water?",
+        choices: ["H2O", "CO2", "O2"],
+        answer: "H2O"
+    },
+    {
+        category: "History",
+        question: "Who was the first president of the United States?",
+        choices: ["Abraham Lincoln", "George Washington", "Thomas Jefferson"],
+        answer: "George Washington"
+    },
+    {
+        category: "Geography",
+        question: "Which river is the longest in the world?",
+        choices: ["Amazon River", "Nile River", "Yangtze River"],
+        answer: "Nile River"
+    },
+    {
+        category: "Literature",
+        question: "Who wrote 'Romeo and Juliet'?",
+        choices: ["Charles Dickens", "William Shakespeare", "Jane Austen"],
+        answer: "William Shakespeare"
+    },
+    {
+        category: "Mathematics",
+        question: "What is the value of Pi (rounded to two decimal places)?",
+        choices: ["3.12", "3.14", "3.16"],
+        answer: "3.14"
+    },
+    {
+        category: "Sports",
+        question: "How many players are on a standard soccer team?",
+        choices: ["9", "10", "11"],
+        answer: "11"
+    }
+];
+
+// User Story: You should have a function named getRandomQuestion
+// that takes an array of questions as a parameter and returns a random question object from the array.
+/**
+ * Returns a random question object from the provided array of questions.
+ * @param {Array<Object>} questionsArray - An array of question objects.
+ * @returns {Object} A random question object.
+ */
+function getRandomQuestion(questionsArray) {
+    const randomIndex = Math.floor(Math.random() * questionsArray.length);
+    return questionsArray[randomIndex];
+}
+
+// User Story: You should have a function named getRandomComputerChoice
+// that takes the array of the available choices as a parameter, and returns a random answer to the selected question.
+/**
+ * Returns a random choice from the provided array of choices.
+ * @param {Array<string>} choicesArray - An array of answer choices.
+ * @returns {string} A random choice string.
+ */
+function getRandomComputerChoice(choicesArray) {
+    const randomIndex = Math.floor(Math.random() * choicesArray.length);
+    return choicesArray[randomIndex];
+}
+
+// User Story: You should have a function named getResults
+// that takes the question object as the first parameter and the computer's choice as the second parameter.
+// The function should return "The computer's choice is correct!" if the answer is correct.
+// Otherwise, it returns "The computer's choice is wrong. The correct answer is: <correct-answer>",
+// where <correct-answer> is the value of the correct answer to the chosen question.
+/**
+ * Compares the computer's choice to the correct answer of a question and returns a result message.
+ * @param {Object} questionObject - The question object.
+ * @param {string} computerChoice - The choice made by the computer.
+ * @returns {string} A string indicating if the choice was correct and the correct answer if wrong.
+ */
+function getResults(questionObject, computerChoice) {
+    if (computerChoice === questionObject.answer) {
+        return "The computer's choice is correct!";
+    } else {
+        return `The computer's choice is wrong. The correct answer is: ${questionObject.answer}`;
+    }
+}
+
+// --- Example Usage (for testing purposes, not part of the required user stories) ---
+// // Get a random question
+// const selectedQuestion = getRandomQuestion(questions);
+// console.log("Selected Question:", selectedQuestion.question);
+// console.log("Available Choices:", selectedQuestion.choices);
+
+// // Get a random computer choice from the selected question's choices
+// const computerGuess = getRandomComputerChoice(selectedQuestion.choices);
+// console.log("Computer's Guess:", computerGuess);
+
+// // Get the results
+// const resultMessage = getResults(selectedQuestion, computerGuess);
+// console.log("Result:", resultMessage);
+
+// // You can uncomment the example usage above to test the functions in your console.
+
+
+** end of script.js **
+

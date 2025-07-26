@@ -1,0 +1,121 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Items</title>
+    <!-- Tailwind CSS CDN for base styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to your custom stylesheet -->
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* Custom font for a personal touch */
+        body {
+            font-family: "Inter", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
+        <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-8">My Favorite Things</h1>
+
+        <!-- Unordered list with the class item-list -->
+        <ul class="item-list space-y-4">
+            <!-- List Item 1 -->
+            <li class="flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow-sm">
+                <span class="text-lg text-gray-700 font-medium">Coffee Mug</span>
+                <!-- Button element with the class favorite-icon -->
+                <button class="favorite-icon text-2xl leading-none focus:outline-none transition-colors duration-200 ease-in-out">&#9825;</button>
+            </li>
+
+            <!-- List Item 2 -->
+            <li class="flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow-sm">
+                <span class="text-lg text-gray-700 font-medium">Comfy Blanket</span>
+                <button class="favorite-icon text-2xl leading-none focus:outline-none transition-colors duration-200 ease-in-out">&#9825;</button>
+            </li>
+
+            <!-- List Item 3 -->
+            <li class="flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow-sm">
+                <span class="text-lg text-gray-700 font-medium">Favorite Book</span>
+                <button class="favorite-icon text-2xl leading-none focus:outline-none transition-colors duration-200 ease-in-out">&#9825;</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="./script.js"></script>
+</body>
+</html>
+
+
+** end of index.html **
+
+** start of styles.css **
+
+/* Basic reset and box-sizing for consistency */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles for the favorite icon button */
+.favorite-icon {
+    /* Default color for empty heart */
+    color: #ccc; /* Light gray */
+    /* Ensure the button itself is transparent, only the heart shows */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem; /* Small padding around the icon */
+    font-size: 1.5rem; /* text-2xl */
+    line-height: 1; /* leading-none */
+    outline: none; /* focus:outline-none */
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out; /* transition-colors duration-200 ease-in-out */
+}
+
+/* Styles for the 'filled' class */
+/* This selector directly targets the 'filled' class as required by the test */
+.filled {
+    color: #ef4444; /* Tailwind's red-500 for a filled heart */
+    transform: scale(1.1); /* Slightly larger when filled */
+}
+
+/* Optional: Add a subtle animation on click for better feedback */
+.favorite-icon:active {
+    transform: scale(0.9);
+}
+
+
+** end of styles.css **
+
+** start of script.js **
+
+// Get all buttons with the class 'favorite-icon'
+const favoriteButtons = document.querySelectorAll('.favorite-icon');
+
+// Loop through each button and attach a click event listener
+favoriteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Toggle the 'filled' class on the clicked button
+        // The .toggle() method returns true if the class was added, false if removed.
+        const wasClassAdded = button.classList.toggle('filled');
+
+        // Check the new state of the button after toggling the class
+        if (wasClassAdded) {
+            // If 'filled' class was added, change the heart symbol to filled
+            button.innerHTML = '&#10084;'; // Filled heart symbol
+        } else {
+            // If 'filled' class was removed, change the heart symbol back to empty
+            button.innerHTML = '&#9825;'; // Empty heart symbol
+        }
+    });
+});
+
+
+** end of script.js **
+

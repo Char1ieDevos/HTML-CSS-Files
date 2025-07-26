@@ -1,0 +1,58 @@
+** start of script.js **
+
+/**
+ * Splits an array into smaller arrays (chunks) of a specified length.
+ *
+ * @param {Array} arr The array to be chunked.
+ * @param {number} size The desired length of each chunk.
+ * @returns {Array<Array>} A two-dimensional array containing the chunks.
+ */
+function chunkArrayInGroups(arr, size) {
+  // Initialize an empty array to store the chunks.
+  const chunkedArray = [];
+
+  // Use a for loop to iterate through the original array.
+  // The loop increments by 'size' in each step, effectively moving
+  // to the start of the next potential chunk.
+  for (let i = 0; i < arr.length; i += size) {
+    // The slice() method extracts a portion of an array into a new array.
+    // It takes two arguments:
+    // 1. The starting index (inclusive) of the slice.
+    // 2. The ending index (exclusive) of the slice.
+    //
+    // Here, we slice from the current index 'i' up to 'i + size'.
+    // If 'i + size' goes beyond the array's length, slice() will
+    // simply take the remaining elements, which correctly handles
+    // the last chunk if it's smaller than 'size'.
+    chunkedArray.push(arr.slice(i, i + size));
+  }
+
+  // Return the array containing all the smaller chunked arrays.
+  return chunkedArray;
+}
+
+// --- Test Cases ---
+
+console.log("chunkArrayInGroups([\"a\", \"b\", \"c\", \"d\"], 2) should return [[\"a\", \"b\"], [\"c\", \"d\"]].");
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2)); // Expected: [["a", "b"], ["c", "d"]]
+
+console.log("\nchunkArrayInGroups([0, 1, 2, 3, 4, 5], 3) should return [[0, 1, 2], [3, 4, 5]].");
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3)); // Expected: [[0, 1, 2], [3, 4, 5]]
+
+console.log("\nchunkArrayInGroups([0, 1, 2, 3, 4, 5], 2) should return [[0, 1], [2, 3], [4, 5]].");
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2)); // Expected: [[0, 1], [2, 3], [4, 5]]
+
+console.log("\nchunkArrayInGroups([0, 1, 2, 3, 4, 5], 4) should return [[0, 1, 2, 3], [4, 5]].");
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4)); // Expected: [[0, 1, 2, 3], [4, 5]]
+
+console.log("\nchunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3) should return [[0, 1, 2], [3, 4, 5], [6]].");
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3)); // Expected: [[0, 1, 2], [3, 4, 5], [6]]
+
+console.log("\nchunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4) should return [[0, 1, 2, 3], [4, 5, 6, 7], [8]].");
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4)); // Expected: [[0, 1, 2, 3], [4, 5, 6, 7], [8]]
+
+console.log("\nchunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2) should return [[0, 1], [2, 3], [4, 5], [6, 7], [8]].");
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2)); // Expected: [[0, 1], [2, 3], [4, 5], [6, 7], [8]]
+
+** end of script.js **
+
